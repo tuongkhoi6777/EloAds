@@ -39,7 +39,7 @@
 
 #nextAdsMsg {
     position: absolute;
-    width: 29%;
+    width: 25%;
     height: 13%;
     bottom: 5%;
     left: 5%;
@@ -65,7 +65,6 @@
     font-size: 3vh;
     margin: 0;
     padding: 1vh;
-    white-space: pre-line;
     line-height: 5vh;
     transition: all 1s;
     opacity: 0;
@@ -77,13 +76,12 @@
     width: 22%;
     height: 15%;
     bottom: 30%;
-    right: 2%;
+    right: 10%;
     color: white;
     background-color: rgba(0,0,0,0.5);
     font-size: 3vh;
     margin: 0;
     padding: 1vh;
-    white-space: pre-line;
     line-height: 5vh;
     transition: all 1s;
     opacity: 0;
@@ -92,16 +90,15 @@
 
 #rewardMsg {
     position: absolute;
-    width: 22%;
-    height: 15%;
-    bottom: 30%;
+    width: 30%;
+    height: 40%;
+    bottom: 15%;
     right: 2%;
     color: white;
     background-color: rgba(0,0,0,0.5);
     font-size: 3vh;
     margin: 0;
     padding: 1vh;
-    white-space: pre-line;
     line-height: 5vh;
     transition: all 1s;
     opacity: 0;
@@ -116,4 +113,11 @@
     transform: scaleY(0);
     transform-origin: bottom;
     width: 100%;
+}
+
+#qrCode {
+    display: block;
+    margin: auto;
+    width: 20vh;
+    height: 20vh;
 }

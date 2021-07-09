@@ -1,3 +1,19 @@
+@font-face {
+    font-family: ICIELPANTON_LIGHT;
+    src: url(../fonts/ICIELPANTON-LIGHT.OTF);
+}
+@font-face {
+    font-family: ICIELPANTON_LIGHT_ITALY;
+    src: url(../fonts/ICIELPANTON-LIGHTITALIC.OTF);
+}
+@font-face {
+    font-family: ICIELPANTON_BLACK;
+    src: url(../fonts/ICIELPANTON-BLACK.OTF);
+}
+@font-face {
+    font-family: ICIELPANTON_BLACK_ITALY;
+    src: url(../fonts/ICIELPANTON-BLACKITALIC.OTF);
+}
 #div-container {
     transition: all 1s;
 }
@@ -31,19 +47,18 @@
     background-color: rgba(0,0,0,0.5);
     font-size: 5vh;
     margin: 0;
-    padding: 1vh;
     text-align: center;
     line-height: 13vh;
     transition: all 1s;
     display: none;
-    font-weight: 500;
+    font-family: ICIELPANTON_LIGHT;
 }
 
 #beerMsg {
     position: absolute;
     width: 35%;
     height: 15%;
-    bottom: 5%;
+    bottom: 15%;
     left: 20%;
     color: white;
     background-color: rgba(0,0,0,0.5);
@@ -54,14 +69,14 @@
     line-height: 5vh;
     transition: all 1s;
     opacity: 0;
-    font-weight: 500;
+    font-family: ICIELPANTON_LIGHT;
 }
 
 #giftMsg {
     position: absolute;
     width: 22%;
     height: 15%;
-    bottom: 15%;
+    bottom: 30%;
     right: 2%;
     color: white;
     background-color: rgba(0,0,0,0.5);
@@ -72,7 +87,25 @@
     line-height: 5vh;
     transition: all 1s;
     opacity: 0;
-    font-weight: 500;
+    font-family: ICIELPANTON_LIGHT;
+}
+
+#rewardMsg {
+    position: absolute;
+    width: 22%;
+    height: 15%;
+    bottom: 30%;
+    right: 2%;
+    color: white;
+    background-color: rgba(0,0,0,0.5);
+    font-size: 3vh;
+    margin: 0;
+    padding: 1vh;
+    white-space: pre-line;
+    line-height: 5vh;
+    transition: all 1s;
+    opacity: 0;
+    font-family: ICIELPANTON_BLACK;
 }
 
 #beerGif {
@@ -82,12 +115,5 @@
     transition: all 3s;
     transform: scaleY(0);
     transform-origin: bottom;
-    width: 100%;
-}
-
-#bg {
-    position: absolute;
-    bottom: 0%;
-    left: 0%;
     width: 100%;
 }

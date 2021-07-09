@@ -8,16 +8,14 @@
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-    <img id="bg" src="assets/images/BG.png">
     <div id="div-container">
         <div id="beer-container"></div>
         <img id="beerGif" src="assets/gif/beer.gif">
         <div id="gift-container"></div>
         <p id="nextAdsMsg">Next Ads in 5s</p>
-        <p id="beerMsg">Press any button in the remote to open the bottle and pour the water. 
-        You can see a surprise!</p>
-        <p id="giftMsg">You receive a Box.
-            Press any button in the remote to open the box</p>
+        <p id="beerMsg">Press any button in the remote to open the bottle and pour the water.<br>You can see a surprise!</p>
+        <p id="giftMsg">You receive a Box.<br>Press any button in the remote to open the box</p>
+        <p id="rewardMsg"><span id='congrat' style='color: darkorange;'>Congrats!</span><br>You win a voucher of 500K vnđ!</p>
     </div>
     <script>
         let currentPhase = "none";
@@ -31,10 +29,10 @@
             alpha: true,
             backgroundColor: "#00000000",
             viewport: {
-                x: -90,
-                y: -180,
-                width: 1920,
-                height: 1080,
+                x: -1/20 * window.innerWidth*1.5,
+                y: -1/6 * window.innerHeight*1.5,
+                width: window.innerWidth*1.5,
+                height: window.innerHeight*1.5,
             },
             success: function (player) {
                 beerPlayer = player;
@@ -54,10 +52,10 @@
             alpha: true,
             backgroundColor: "#00000000",
             viewport: {
-                x: -1280,
-                y: -180,
-                width: 1920,
-                height: 1080,
+                x: -2/3 * window.innerWidth * 1.5,
+                y: -1/3 * window.innerHeight * 1.5,
+                width: window.innerWidth * 1.5,
+                height: window.innerHeight * 1.5,
             },
             skin: "E money",
             success: function (player) {
@@ -76,10 +74,10 @@
                     case "BeerWaiting": 
                         currentPhase = "none";
                         document.getElementById("beerMsg").style.opacity = "0";
-                        document.getElementById("beer-container").style.transform = "translateY(-5vh)";
+                        document.getElementById("beer-container").style.transform = "translateY(-20vh)";
                         beerPlayer.animationState.setAnimation(0, "Beer Pour", false, 0);
                         setTimeout(() => {
-                            document.getElementById("beerGif").style.transform = "scaleY(0.5)";
+                            document.getElementById("beerGif").style.transform = "scaleY(1)";
                         }, 500);
                         giftPlayer.animationState.setAnimation(0, "IDLE", true, 0);
                         setTimeout(() => {
@@ -106,9 +104,7 @@
                         setTimeout(()=>{
                             currentPhase = "EndAds";
                             document.getElementById("beer-container").style.display = "block";
-                            document.getElementById("giftMsg").style.opacity = "1";
-                            document.getElementById("giftMsg").innerHTML = 
-                            "<span id='congrat' style='color: darkorange;'>Congrats!</span><br>You win a voucher of 500K vnđ!";
+                            document.getElementById("rewardMsg").style.opacity = "1";
                         }, 1000);
                         break;
                     case "EndAds":
@@ -120,8 +116,6 @@
             }
         });
         function startAds() {
-            document.getElementById("giftMsg").innerHTML = 
-                "You receive a Box.<br>Press any button in the remote to open the box";
             document.getElementById("div-container").style.opacity = "1";
             let timeLeft = 5;
             let nextAdsInterval = setInterval(()=>{
@@ -144,6 +138,7 @@
             document.getElementById("beerGif").style.transform = "scaleY(0)";
             document.getElementById("gift-container").style.opacity = 0;
             document.getElementById("giftMsg").style.opacity = "0";
+            document.getElementById("rewardMsg").style.opacity = "0";
         }
     </script>
 </body>

@@ -3,17 +3,147 @@
     <title>EloAds</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <script src="data.js"></script>
     <script src="https://esotericsoftware.com/files/spine-player/3.8/spine-player.js"></script>
-    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://esotericsoftware.com/files/spine-player/3.8/spine-player.css">
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-    <div id="player-container"></div>
+    <img id="bg" src="assets/images/BG.png">
+    <div id="div-container">
+        <div id="beer-container"></div>
+        <img id="beerGif" src="assets/gif/beer.gif">
+        <div id="gift-container"></div>
+        <p id="nextAdsMsg">Next Ads in 5s</p>
+        <p id="beerMsg">Press any button in the remote to open the bottle and pour the water. 
+        You can see a surprise!</p>
+        <p id="giftMsg">You receive a Box.
+            Press any button in the remote to open the box</p>
+    </div>
     <script>
-        new spine.SpinePlayer("player-container", {
+        let currentPhase = "none";
+        let beerPlayer = null;
+        let giftPlayer = null;
+        let beerSpine = new spine.SpinePlayer("beer-container", {
             jsonUrl: "https://tuongkhoi6777.github.io/EloAds/assets/spine/Beer Can.json",
             atlasUrl: "https://tuongkhoi6777.github.io/EloAds/assets/spine/Beer Can.atlas",
+            showControls: false,
+            premultipliedAlpha: false,
+            alpha: true,
+            backgroundColor: "#00000000",
+            viewport: {
+                x: -90,
+                y: -180,
+                width: 1920,
+                height: 1080,
+            },
+            success: function (player) {
+                beerPlayer = player;
+                startAds();
+            },
+            error: function (player, reason) {
+                alert(reason);
+            }
         });
+
+        const giftSkin = ["E money", "Data/Voice", "Voice"];
+        new spine.SpinePlayer("gift-container", {
+            jsonUrl: "https://tuongkhoi6777.github.io/EloAds/assets/spine/TV Ads_Gift.json",
+            atlasUrl: "https://tuongkhoi6777.github.io/EloAds/assets/spine/TV Ads_Gift.atlas",
+            showControls: false,
+            premultipliedAlpha: false,
+            alpha: true,
+            backgroundColor: "#00000000",
+            viewport: {
+                x: -1280,
+                y: -180,
+                width: 1920,
+                height: 1080,
+            },
+            skin: "E money",
+            success: function (player) {
+                giftPlayer = player;
+            },
+            error: function (player, reason) {
+                alert(reason);
+            }
+        });
+        document.addEventListener('keydown', (e)=>{
+            if(e.keyCode == 13 ){
+                switch(currentPhase) {
+                    case "StartAds":
+                        startAds();
+                        break;
+                    case "BeerWaiting": 
+                        currentPhase = "none";
+                        document.getElementById("beerMsg").style.opacity = "0";
+                        document.getElementById("beer-container").style.transform = "translateY(-5vh)";
+                        beerPlayer.animationState.setAnimation(0, "Beer Pour", false, 0);
+                        setTimeout(() => {
+                            document.getElementById("beerGif").style.transform = "scaleY(0.5)";
+                        }, 500);
+                        giftPlayer.animationState.setAnimation(0, "IDLE", true, 0);
+                        setTimeout(() => {
+                            document.getElementById("gift-container").style.transform = "translateX(50vw)";
+                            setTimeout(()=>{
+                                document.getElementById("gift-container").style.opacity = 1;
+                                document.getElementById("gift-container").style.transition = "all 1s";
+                                document.getElementById("gift-container").style.transform = "translateX(0vw)";
+                                document.getElementById("beer-container").style.display = "none";
+                                document.getElementById("beer-container").style.transform = "translateY(0vh)";
+                            }, 500)
+                            setTimeout(()=>{
+                                document.getElementById("giftMsg").style.opacity = "1";
+                                currentPhase = "GiftWaiting";
+                            }, 1000)
+                        }, 4000);
+                    break;
+                    case "GiftWaiting":
+                        giftPlayer.skeleton.setSkinByName(giftSkin[Math.floor(Math.random()*3)]);
+                        giftPlayer.animationState.addAnimation(0, "OPEN", false, 0);
+                        giftPlayer.animationState.addAnimation(0, "OPEN_IDLE", true, 0);
+                        currentPhase = "none";
+                        document.getElementById("giftMsg").style.opacity = "0";
+                        setTimeout(()=>{
+                            currentPhase = "EndAds";
+                            document.getElementById("beer-container").style.display = "block";
+                            document.getElementById("giftMsg").style.opacity = "1";
+                            document.getElementById("giftMsg").innerHTML = 
+                            "<span id='congrat' style='color: darkorange;'>Congrats!</span><br>You win a voucher of 500K vnđ!";
+                        }, 1000);
+                        break;
+                    case "EndAds":
+                        document.getElementById("div-container").style.opacity = "0";
+                        currentPhase = "StartAds";
+                        resetAds();
+                        break;  
+                }
+            }
+        });
+        function startAds() {
+            document.getElementById("giftMsg").innerHTML = 
+                "You receive a Box.<br>Press any button in the remote to open the box";
+            document.getElementById("div-container").style.opacity = "1";
+            let timeLeft = 5;
+            let nextAdsInterval = setInterval(()=>{
+                document.getElementById("nextAdsMsg").style.display = "block";
+                document.getElementById("nextAdsMsg").innerHTML = `Next Ads in ${timeLeft}s`;
+                if(timeLeft-- <= 0) {
+                    clearInterval(nextAdsInterval);
+                    document.getElementById("beer-container").style.display = "block";
+                    document.getElementById("nextAdsMsg").style.display = "none";
+                    beerPlayer.animationState.setAnimation(0, "Xuat Hien");
+                    beerPlayer.animationState.addAnimation(0, "IDLE", true, 0);
+                    document.getElementById("beerMsg").style.opacity = "1";
+                    currentPhase = "BeerWaiting";
+                }
+            }, 1000);
+        }
+
+        function resetAds() {
+            document.getElementById("div-container").style.opacity = "0";
+            document.getElementById("beerGif").style.transform = "scaleY(0)";
+            document.getElementById("gift-container").style.opacity = 0;
+            document.getElementById("giftMsg").style.opacity = "0";
+        }
     </script>
 </body>

@@ -1,0 +1,125 @@
+
+TV Ads_Gift.png
+size: 1979,1278
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Appear Light
+  rotate: false
+  xy: 2, 565
+  size: 692, 711
+  orig: 692, 711
+  offset: 0, 0
+  index: -1
+Back Box
+  rotate: true
+  xy: 1737, 14
+  size: 319, 220
+  orig: 319, 220
+  offset: 0, 0
+  index: -1
+Cover Box
+  rotate: false
+  xy: 1385, 343
+  size: 353, 229
+  orig: 353, 229
+  offset: 0, 0
+  index: -1
+Dash light
+  rotate: true
+  xy: 696, 595
+  size: 169, 237
+  orig: 169, 237
+  offset: 0, 0
+  index: -1
+Front box1
+  rotate: true
+  xy: 1551, 574
+  size: 327, 353
+  orig: 327, 353
+  offset: 0, 0
+  index: -1
+Gift 12_1
+  rotate: false
+  xy: 1385, 2
+  size: 350, 339
+  orig: 350, 339
+  offset: 0, 0
+  index: -1
+Gift/Data_voice2
+  rotate: false
+  xy: 1180, 590
+  size: 237, 237
+  orig: 237, 237
+  offset: 0, 0
+  index: -1
+Gift/E-money3
+  rotate: false
+  xy: 935, 584
+  size: 243, 243
+  orig: 243, 243
+  offset: 0, 0
+  index: -1
+Gift/Voice1
+  rotate: false
+  xy: 1740, 335
+  size: 237, 237
+  orig: 237, 237
+  offset: 0, 0
+  index: -1
+Invincible1
+  rotate: false
+  xy: 515, 39
+  size: 511, 524
+  orig: 511, 524
+  offset: 0, 0
+  index: -1
+Invincible12
+  rotate: true
+  xy: 1551, 903
+  size: 373, 375
+  orig: 373, 375
+  offset: 0, 0
+  index: -1
+Invincible3
+  rotate: true
+  xy: 2, 37
+  size: 526, 511
+  orig: 526, 511
+  offset: 0, 0
+  index: -1
+Ligh Trail
+  rotate: false
+  xy: 696, 766
+  size: 193, 510
+  orig: 193, 510
+  offset: 0, 0
+  index: -1
+Light Gront
+  rotate: true
+  xy: 891, 829
+  size: 447, 355
+  orig: 447, 355
+  offset: 0, 0
+  index: -1
+Light front2
+  rotate: true
+  xy: 1028, 135
+  size: 447, 355
+  orig: 447, 355
+  offset: 0, 0
+  index: -1
+Ribbon back
+  rotate: true
+  xy: 1248, 871
+  size: 405, 301
+  orig: 405, 301
+  offset: 0, 0
+  index: -1
+Star
+  rotate: false
+  xy: 1419, 786
+  size: 83, 83
+  orig: 83, 83
+  offset: 0, 0
+  index: -1

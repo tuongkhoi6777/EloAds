@@ -1,0 +1,21 @@
+<html lang="en">
+<head>
+    <title>EloAds</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <script src="data.js"></script>
+    <script src="http://esotericsoftware.com/files/spine-player/3.8/spine-player.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="http://esotericsoftware.com/files/spine-player/3.8/spine-player.css">
+</head>
+<body>
+    <div id="player-container"></div>
+    <script>
+        new spine.SpinePlayer("player-container", {
+            // jsonUrl: "/assets/spine/Beer Can.json",
+            // atlasUrl: "/assets/spine/Beer Can.atlas",
+            jsonUrl: "http://esotericsoftware.com/files/examples/spineboy/export/spineboy-pro.json",
+	        atlasUrl: "http://esotericsoftware.com/files/examples/spineboy/export/spineboy.atlas"
+        });
+    </script>
+</body>

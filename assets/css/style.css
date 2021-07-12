@@ -46,7 +46,6 @@ body {
 #nextAdsMsg {
     position: absolute;
     width: 25%;
-    height: 13%;
     bottom: 5%;
     left: 5%;
     color: white;
@@ -63,7 +62,6 @@ body {
 #beerMsg {
     position: absolute;
     width: 35%;
-    height: 15%;
     bottom: 15%;
     left: 20%;
     color: white;
@@ -80,7 +78,6 @@ body {
 #giftMsg {
     position: absolute;
     width: 22%;
-    height: 15%;
     bottom: 30%;
     right: 10%;
     color: white;
@@ -97,7 +94,6 @@ body {
 #rewardMsg {
     position: absolute;
     width: 25%;
-    height: 40%;
     bottom: 15%;
     right: 5%;
     color: white;

@@ -41,6 +41,7 @@
                 height: 1920 * window.innerHeight / window.innerWidth,
             },
             success: function (player) {
+                document.getElementsByTagName("body").focus();
                 beerPlayer = player;
                 startAds();
             },

@@ -10,7 +10,8 @@
 <body>
     <div id="div-container">
         <div id="beer-container"></div>
-        <img id="beerGif" src="assets/gif/beer.gif">
+        <video id="beerGif" autoplay muted loop src="./assets/videos/video.webm"></video>
+        <!-- <img id="beerGif" src="assets/gif/beer.gif"> -->
         <div id="gift-container"></div>
         <p id="nextAdsMsg">Next Ads in 5s</p>
         <p id="beerMsg">Press any button in the remote to open the bottle and pour the water.<br>You can see a surprise!</p>
@@ -85,7 +86,7 @@
                             document.getElementById("beer-container").style.transform = "translateY(-10vh)";
                         },1000)
                         beerPlayer.animationState.setAnimation(0, "Beer Pour", false, 0);
-                        document.getElementById("beerGif").style.transform = "scaleY(1)";
+                        document.getElementById("beerGif").style.transform = "scaleY(0.3)";
 
                         giftPlayer.animationState.setAnimation(0, "IDLE", true, 0);
                         setTimeout(() => {

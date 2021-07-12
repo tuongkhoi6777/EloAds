@@ -31,11 +31,11 @@
             jsonUrl: "https://tuongkhoi6777.github.io/EloAds/assets/spine/Beer Can.json",
             atlasUrl: "https://tuongkhoi6777.github.io/EloAds/assets/spine/Beer Can.atlas",
             showControls: false,
-            premultipliedAlpha: false,
+            premultipliedAlpha: true,
             alpha: true,
             backgroundColor: "#00000000",
             viewport: {
-                x: -0.05 * 1920,
+                x: -0.1 * 1920,
                 y: -0.2 * 1920 * window.innerHeight / window.innerWidth,
                 width: 1920,
                 height: 1920 * window.innerHeight / window.innerWidth,
@@ -59,7 +59,7 @@
             alpha: true,
             backgroundColor: "#00000000",
             viewport: {
-                x: -0.6 * 1920,
+                x: -0.8 * 1920,
                 y: -0.35 * 1920 * window.innerHeight / window.innerWidth,
                 width: 1920,
                 height: 1920 * window.innerHeight / window.innerWidth,
@@ -81,11 +81,12 @@
                     case "BeerWaiting": 
                         currentPhase = "none";
                         document.getElementById("beerMsg").style.opacity = "0";
-                        document.getElementById("beer-container").style.transform = "translateY(-15vh)";
+                        setTimeout(()=>{
+                            document.getElementById("beer-container").style.transform = "translateY(-10vh)";
+                        },1000)
                         beerPlayer.animationState.setAnimation(0, "Beer Pour", false, 0);
-                        setTimeout(() => {
-                            document.getElementById("beerGif").style.transform = "scaleY(1)";
-                        }, 500);
+                        document.getElementById("beerGif").style.transform = "scaleY(1)";
+
                         giftPlayer.animationState.setAnimation(0, "IDLE", true, 0);
                         setTimeout(() => {
                             document.getElementById("gift-container").style.transform = "translateX(50vw)";

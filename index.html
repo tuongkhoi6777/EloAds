@@ -35,8 +35,8 @@
             alpha: true,
             backgroundColor: "#00000000",
             viewport: {
-                x: -1/20 * 1920,
-                y: -1/6 * 1920 * window.innerHeight / window.innerWidth,
+                x: -0.05 * 1920,
+                y: -0.2 * 1920 * window.innerHeight / window.innerWidth,
                 width: 1920,
                 height: 1920 * window.innerHeight / window.innerWidth,
             },
@@ -58,8 +58,8 @@
             alpha: true,
             backgroundColor: "#00000000",
             viewport: {
-                x: -3/5 * 1920,
-                y: -1/3 * 1920 * window.innerHeight / window.innerWidth,
+                x: -0.6 * 1920,
+                y: -0.35 * 1920 * window.innerHeight / window.innerWidth,
                 width: 1920,
                 height: 1920 * window.innerHeight / window.innerWidth,
             },
@@ -80,10 +80,10 @@
                     case "BeerWaiting": 
                         currentPhase = "none";
                         document.getElementById("beerMsg").style.opacity = "0";
-                        document.getElementById("beer-container").style.transform = "translateY(-20vh)";
+                        document.getElementById("beer-container").style.transform = "translateY(-15vh)";
                         beerPlayer.animationState.setAnimation(0, "Beer Pour", false, 0);
                         setTimeout(() => {
-                            document.getElementById("beerGif").style.transform = "scaleY(0.8)";
+                            document.getElementById("beerGif").style.transform = "scaleY(1)";
                         }, 500);
                         giftPlayer.animationState.setAnimation(0, "IDLE", true, 0);
                         setTimeout(() => {

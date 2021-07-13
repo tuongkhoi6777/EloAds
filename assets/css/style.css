@@ -118,6 +118,14 @@ body {
     /* height: 30%; */
 }
 
+#beerPour {
+    position: absolute;
+    bottom: -65%;
+    left: -10%;
+    transform: scale(-1,3);
+    height: 50%;
+}
+
 #qrCode {
     display: block;
     margin: auto;

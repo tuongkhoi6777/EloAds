@@ -9,8 +9,9 @@
 </head>
 <body>
     <div id="div-container">
-        <div id="beer-container"></div>
+        <video id="beerPour" muted src="./assets/videos/pour.webm"></video>
         <video id="beerGif" autoplay muted loop src="./assets/videos/video.webm"></video>
+        <div id="beer-container"></div>
         <!-- <img id="beerGif" src="assets/gif/beer.gif"> -->
         <div id="gift-container"></div>
         <p id="nextAdsMsg">Next Ads in 5s</p>
@@ -83,7 +84,9 @@
                         currentPhase = "none";
                         document.getElementById("beerMsg").style.opacity = "0";
                         setTimeout(()=>{
-                            document.getElementById("beer-container").style.transform = "translateY(-10vh)";
+                            document.getElementById("beer-container").style.transform = "translate(6vw,-10vh)";
+                            document.getElementById("beerPour").play();
+                            document.getElementById("beerPour").playbackRate = 3;
                         },1000)
                         beerPlayer.animationState.setAnimation(0, "Beer Pour", false, 0);
                         document.getElementById("beerGif").style.transform = "scaleY(0.3)";
@@ -143,6 +146,7 @@
         }
 
         function resetAds() {
+            document.getElementById("beerPour").currentTime = 0;
             document.getElementById("div-container").style.opacity = "0";
             document.getElementById("beerGif").style.transform = "scaleY(0)";
             document.getElementById("gift-container").style.opacity = 0;

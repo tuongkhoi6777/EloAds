@@ -41,6 +41,7 @@
                 y: -0.2 * 1920 * window.innerHeight / window.innerWidth,
                 width: 1920,
                 height: 1920 * window.innerHeight / window.innerWidth,
+                debugRender: true
             },
             success: function (player) {
                 window.focus();
@@ -84,9 +85,9 @@
                         currentPhase = "none";
                         document.getElementById("beerMsg").style.opacity = "0";
                         setTimeout(()=>{
-                            document.getElementById("beer-container").style.transform = "translate(6vw,-10vh)";
+                            document.getElementById("beer-container").style.transform = "translate(0,-10vh)";
                             document.getElementById("beerPour").style.transition = "all 5s";
-                            document.getElementById("beerPour").style.transform = " scale(-1,3) translateY(-3.3vh)";
+                            document.getElementById("beerPour").style.transform = " scale(-1,3) translate(6vw,-3.3vh)";
                             document.getElementById("beerPour").play();
                             document.getElementById("beerPour").playbackRate = 3.2;
                         },1000)

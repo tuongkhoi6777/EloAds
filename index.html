@@ -85,8 +85,10 @@
                         document.getElementById("beerMsg").style.opacity = "0";
                         setTimeout(()=>{
                             document.getElementById("beer-container").style.transform = "translate(6vw,-10vh)";
+                            document.getElementById("beerPour").style.transition = "all 5s";
+                            document.getElementById("beerPour").style.transform = " scale(-1,3) translateY(-3.3vh)";
                             document.getElementById("beerPour").play();
-                            document.getElementById("beerPour").playbackRate = 3;
+                            document.getElementById("beerPour").playbackRate = 3.2;
                         },1000)
                         beerPlayer.animationState.setAnimation(0, "Beer Pour", false, 0);
                         document.getElementById("beerGif").style.transform = "scaleY(0.3)";

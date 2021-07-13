@@ -90,6 +90,7 @@
                             document.getElementById("beerPour").play();
                             document.getElementById("beerPour").playbackRate = 3.2;
                         },1000)
+                        // beerPlayer.animationState.timeScale = 0.5;
                         beerPlayer.animationState.setAnimation(0, "Beer Pour", false, 0);
                         document.getElementById("beerGif").style.transform = "scaleY(0.3)";
 
@@ -102,6 +103,7 @@
                                 document.getElementById("gift-container").style.transform = "translateX(0vw)";
                                 document.getElementById("beer-container").style.display = "none";
                                 document.getElementById("beer-container").style.transform = "translateY(0vh)";
+                                document.getElementById("beerPour").style.transform = " scale(-1,3) translate(0,0)";
                             }, 500)
                             setTimeout(()=>{
                                 document.getElementById("giftMsg").style.opacity = "1";

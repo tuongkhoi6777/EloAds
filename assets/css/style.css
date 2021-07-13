@@ -121,7 +121,7 @@ body {
 #beerPour {
     position: absolute;
     bottom: -42.5vw;
-    left: -10.25vw;
+    left: -10vw;
     transform: scale(-1,3);
     width: 50%;
 }

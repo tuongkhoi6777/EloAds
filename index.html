@@ -9,8 +9,8 @@
 </head>
 <body>
     <div id="div-container">
-        <video id="beerGif" preload="auto" autoplay muted loop src="./assets/videos/video.webm"></video>
         <div id="beer-container"></div>
+        <video id="beerGif" preload="auto" autoplay muted loop src="./assets/videos/video.webm"></video>
         <!-- <img id="beerGif" src="assets/gif/beer.gif"> -->
         <div id="gift-container"></div>
         <p id="nextAdsMsg">Next Ads in 5s</p>
@@ -18,7 +18,7 @@
         <p id="giftMsg">Bạn nhận được một hộp quà từ nhà tài trợ.<br>Bấm nút bất kỳ trên remote để nhận.</p>
         <p id="rewardMsg">
             <span id='congrat' style='color: darkorange;'>Chúc mừng!</span>
-            <br>Bạn nhận được một phiếu quà tang trị giá 500.000 VND.
+            <br>Bạn nhận được một phiếu quà tặng trị giá 500.000 VND.
             <br>Quét mã QR bên dưới để nhận quà.
             <br>
         <img id="qrCode" src="https://api.qrserver.com/v1/create-qr-code/?data=HelloWorld">
@@ -36,7 +36,7 @@
             alpha: true,
             backgroundColor: "#00000000",
             viewport: {
-                x: -0.1 * 1920,
+                x: 0 * 1920,
                 y: -0.2 * 1920 * window.innerHeight / window.innerWidth,
                 width: 1920,
                 height: 1920 * window.innerHeight / window.innerWidth,
@@ -82,12 +82,12 @@
                     case "BeerWaiting": 
                         currentPhase = "none";
                         document.getElementById("beerMsg").style.opacity = "0";
+                        document.getElementById("beerGif").style.transform = `scaleY(${0.6*window.innerHeight/window.innerWidth})`;
                         setTimeout(()=>{
                             document.getElementById("beer-container").style.transform = "translate(0,-10vh)";
                         },1000)
                         // beerPlayer.animationState.timeScale = 0.5;
-                        beerPlayer.animationState.setAnimation(0, "Beer Pour", false, 0);
-                        document.getElementById("beerGif").style.transform = "scaleY(0.3)";
+                        beerPlayer.animationState.setAnimation(0, "Pour", false, 0);
 
                         giftPlayer.animationState.setAnimation(0, "IDLE", true, 0);
                         setTimeout(() => {
@@ -136,8 +136,8 @@
                     clearInterval(nextAdsInterval);
                     document.getElementById("beer-container").style.display = "block";
                     document.getElementById("nextAdsMsg").style.display = "none";
-                    beerPlayer.animationState.setAnimation(0, "Xuat Hien");
-                    beerPlayer.animationState.addAnimation(0, "IDLE", true, 0);
+                    beerPlayer.animationState.setAnimation(0, "Appear");
+                    beerPlayer.animationState.addAnimation(0, "Idle", true, 0);
                     document.getElementById("beerMsg").style.opacity = "1";
                     currentPhase = "BeerWaiting";
                 }

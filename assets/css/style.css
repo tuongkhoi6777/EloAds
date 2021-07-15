@@ -61,9 +61,9 @@ body {
 
 #beerMsg {
     position: absolute;
-    width: 35%;
+    width: 24%;
     bottom: 15%;
-    left: 20%;
+    left: 25%;
     color: white;
     background-color: rgba(0,0,0,0.5);
     font-size: 1.5vw;
@@ -77,9 +77,9 @@ body {
 
 #giftMsg {
     position: absolute;
-    width: 22%;
+    width: 24%;
     bottom: 30%;
-    right: 10%;
+    right: 5%;
     color: white;
     background-color: rgba(0,0,0,0.5);
     font-size: 1.5vw;

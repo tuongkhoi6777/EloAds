@@ -90,6 +90,7 @@
                         break;
                     case "BeerWaiting": 
                         currentPhase = "none";
+                        video.currentTime = 0;
                         document.getElementById("beerMsg").style.opacity = "0";
                         document.getElementById("beerGif").style.transform = `scaleY(${0.6*window.innerHeight/window.innerWidth})`;
                         setTimeout(()=>{

@@ -32,6 +32,8 @@
         let currentPhase = "none";
         let beerPlayer = null;
         let giftPlayer = null;
+        let isSuccess = false;
+        let video = document.getElementById("beerVideo");
         let beerSpine = new spine.SpinePlayer("beer-container", {
             jsonUrl: "https://tuongkhoi6777.github.io/EloAds/assets/spine/Beer 2.json",
             atlasUrl: "https://tuongkhoi6777.github.io/EloAds/assets/spine/Beer 2.atlas",
@@ -48,7 +50,7 @@
             success: function (player) {
                 window.focus();
                 beerPlayer = player;
-                startAds();
+                isSuccess = true;
             },
             error: function (player, reason) {
                 alert(reason);
@@ -77,7 +79,6 @@
                 alert(reason);
             }
         });
-        let video = document.getElementById("beerVideo");
         var req = new XMLHttpRequest();
         req.open('GET', 'https://tuongkhoi6777.github.io/EloAds/assets/videos/video.webm', true);
         req.responseType = 'blob';
@@ -86,6 +87,13 @@
                 var videoBlob = this.response;
                 var vid = URL.createObjectURL(videoBlob); // IE10+
                 video.src = vid;
+                let videoInterval = setInterval(()=>{
+                    if(isSuccess) {
+                        console.log("Start");
+                        startAds();
+                        clearInterval(videoInterval);
+                    }
+                }, 500)
             }
         }
         req.onerror = function() {

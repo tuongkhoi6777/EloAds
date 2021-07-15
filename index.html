@@ -6,11 +6,13 @@
     <script src="https://esotericsoftware.com/files/spine-player/3.8/spine-player.js"></script>
     <link rel="stylesheet" href="https://esotericsoftware.com/files/spine-player/3.8/spine-player.css">
     <link rel="stylesheet" href="assets/css/style.css">
+    <!-- <link rel="preload" as="video" href="https://tuongkhoi6777.github.io/EloAds/assets/videos/video.webm"> -->
 </head>
 <body>
     <div id="div-container">
         <div id="beer-container"></div>
-        <video id="beerGif" preload="auto" muted loop>
+        <!-- <video id="beerVideo" muted loop></video> -->
+        <video id="beerVideo" preload="auto" muted loop>
             <source src="./assets/videos/video.webm" type="video/mp4">
         </video>
         <!-- <img id="beerGif" src="assets/gif/beer.gif"> -->
@@ -75,13 +77,14 @@
                 alert(reason);
             }
         });
-        let video = document.getElementById("beerGif");
-        video.oncanplay = () => {
-            console.log("can play");
-            setTimeout(()=>{
-                video.play();
-            }, 1500)
-        }
+        let video = document.getElementById("beerVideo");
+        // video.src = "https://tuongkhoi6777.github.io/EloAds/assets/videos/video.webm";
+        // video.oncanplay = () => {
+        //     console.log("can play");
+        //     setTimeout(()=>{
+        //         video.play();
+        //     }, 1500)
+        // }
         document.addEventListener('keydown', (e)=>{
             if(e.keyCode == 13 ){
                 switch(currentPhase) {
@@ -91,8 +94,14 @@
                     case "BeerWaiting": 
                         currentPhase = "none";
                         video.currentTime = 0;
+                        let videoInterval = setInterval(()=>{
+                            if (video.readyState === 4) {
+                                video.play();
+                                clearInterval(videoInterval);
+                            }
+                        }, 500)
                         document.getElementById("beerMsg").style.opacity = "0";
-                        document.getElementById("beerGif").style.transform = `scaleY(${0.6*window.innerHeight/window.innerWidth})`;
+                        document.getElementById("beerVideo").style.transform = `scaleY(${0.6*window.innerHeight/window.innerWidth})`;
                         setTimeout(()=>{
                             document.getElementById("beer-container").style.transform = "translate(0,-10vh)";
                         },1000)
@@ -156,7 +165,7 @@
 
         function resetAds() {
             document.getElementById("div-container").style.opacity = "0";
-            document.getElementById("beerGif").style.transform = "scaleY(0)";
+            document.getElementById("beerVideo").style.transform = "scaleY(0)";
             document.getElementById("gift-container").style.opacity = 0;
             document.getElementById("giftMsg").style.opacity = "0";
             document.getElementById("rewardMsg").style.opacity = "0";

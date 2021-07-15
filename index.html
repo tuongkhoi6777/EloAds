@@ -78,6 +78,12 @@
             }
         });
         let video = document.getElementById("beerVideo");
+        let videoInterval = setInterval(()=>{
+            if (video.readyState === 4) {
+                video.play();
+                clearInterval(videoInterval);
+            }
+        }, 500)
         // video.src = "https://tuongkhoi6777.github.io/EloAds/assets/videos/video.webm";
         // video.oncanplay = () => {
         //     console.log("can play");
@@ -94,12 +100,6 @@
                     case "BeerWaiting": 
                         currentPhase = "none";
                         video.currentTime = 0;
-                        let videoInterval = setInterval(()=>{
-                            if (video.readyState === 4) {
-                                video.play();
-                                clearInterval(videoInterval);
-                            }
-                        }, 500)
                         document.getElementById("beerMsg").style.opacity = "0";
                         document.getElementById("beerVideo").style.transform = `scaleY(${0.6*window.innerHeight/window.innerWidth})`;
                         setTimeout(()=>{
